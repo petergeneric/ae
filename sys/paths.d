@@ -83,7 +83,7 @@ else // POSIX
 		string s2;
 		foreach (c; s)
 			if (isAlphaNum(c))
-				s2 ~= toLower(c);
+				s2 ~= std.uni.toLower(c);
 			else
 				if (!s2.endsWith('-'))
 					s2 ~= '-';
