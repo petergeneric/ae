@@ -13,6 +13,8 @@
 
 module ae.sys.windows;
 
+version(Windows):
+
 import std.exception;
 import std.string;
 import std.typecons;
