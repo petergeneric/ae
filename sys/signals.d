@@ -44,6 +44,7 @@ void removeSignalHandler(int signum, SignalHandler fn)
 
 // ***************************************************************************
 
+version(linux) {
 /// If the signal signum is raised during execution of code,
 /// ignore it. Returns true if the signal was raised.
 bool collectSignal(int signum, void delegate() code)
@@ -69,6 +70,7 @@ bool collectSignal(int signum, void delegate() code)
 	}
 
 	return result;
+}
 }
 
 private:

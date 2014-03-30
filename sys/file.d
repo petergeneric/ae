@@ -651,7 +651,7 @@ Thread writeFileAsync(File f, in void[] data)
 
 		void run()
 		{
-			version (Posix)
+			version (linux)
 			{
 				import ae.sys.signals;
 				collectSignal(SIGPIPE, &write);
