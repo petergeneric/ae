@@ -504,7 +504,7 @@ final class DataWrapper
 			pageSize = si.dwPageSize;
 		}
 	}
-	else
+	else version(linux) {
 	static if (is(typeof(_SC_PAGE_SIZE)))
 	{
 		static immutable size_t pageSize;
@@ -513,6 +513,11 @@ final class DataWrapper
 		{
 			pageSize = sysconf(_SC_PAGE_SIZE);
 		}
+	}
+	}
+	else version ( OSX ) {
+		// unistd.d only has _SC_PAGE_SIZE for linux so have to assume...
+		static immutable size_t pageSize = 4096;
 	}
 
 	static void* malloc(ref size_t size)
