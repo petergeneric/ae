@@ -1,0 +1,7 @@
+{
+	"name": "ae",
+	"description": "dub package for a cut-down version of CyberShadow's ae library",
+	"dependencies": {
+		"openssl": "~master",
+	}
+}

@@ -1,9 +1,7 @@
 ﻿About this library
 ==================
 
-*ae* (fully named *ArmageddonEngine*) was initially intended to be the open-source part of an ambitious D rewrite of the 1999 video game "Worms Armageddon", of which I am a [maintainer](http://worms2d.info/CyberShadow).
-As the library accumulated code and found use in various projects, its original purpose diminished.
-In the future, if there is sufficient reason for it (e.g. to allow static linking), it may be split up into multiple libraries.
+This is a cutdown fork of [the original *ae* library](https://github.com/CyberShadow/ae), you probably don't want to use this one.
 
 License
 =======
@@ -15,29 +13,17 @@ You can generally expect the library to be GPL-compatible.
 Using this library
 ==================
 
-For a complete-newbie Windows tutorial of setting up *ae* and building an SDL game demo, see [here](http://worms2d.info/4/Development_setup).
-
-This library is not meant to be compiled as a static (.lib, .a) or shared (.dll, .so) library.
-Do not attempt to do so; you will run into problems with multiple entry points, dependencies you may not need, and other problems.
-Instead, it is intended to be used as a source library, together with a build tool (e.g. [rdmd](http://dlang.org/rdmd.html)).
-
-The recommended way to use the library is to set it up as a git external in your project's root, as seen [here](https://github.com/CyberShadow/ForumAntiSpam).
-This will link your project with a specific commit of the library, to avoid breakage due to API changes (see below).
+This fork of the library is designed to be built with [dub](http://code.dlang.org/about)
 
 Overview
 ========
 
 The library is split into the following packages:
 
- * `ae.demo` – This package contains a few demos for various parts of the library. Most of these are SDL demos.
+ * `ae.demo` – This package contains a few demos for the library.
  * `ae.net` – All the networking code (HTTP, NNTP, IRC) lives here.
  * `ae.sys` – Utility code which primarily interfaces with other systems (including the operating system).
- * `ae.ui` – Framework for creating 2D games and graphical applications (SDL, OpenGL).
  * `ae.utils` – Utility code which primarily manipulates data.
-
-Notable sub-packages:
-
- * `ae.utils.graphics` – Contains a templated graphical context optimized for speed, and basic support for a few image formats.
 
 Data
 ----
@@ -52,12 +38,6 @@ Networking
 *ae* uses asynchronous event-based networking.
 A `select`-based event loop dispatches events to connection objects, which then propagate them to higher-level code as necessary.
 The library may eventually move to a generic event loop, allowing for asynchronous processing and multiple event loops for different subsystems.
-
-UI
---
-
-Not much here yet.
-There is a working game demo in `ae.demo.pewpew`.
 
 Warning
 =======
